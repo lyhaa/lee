@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Commands component renders 1`] = `
+<div
+  className="commands"
+>
+  <div>
+    <Blueprint3.ControlGroup
+      fill={true}
+      vertical={false}
+    >
+      <version-chooser
+        appState={
+          Object {
+            "gistId": null,
+          }
+        }
+      />
+      <runner
+        appState={
+          Object {
+            "gistId": null,
+          }
+        }
+      />
+    </Blueprint3.ControlGroup>
+    <Blueprint3.ControlGroup
+      fill={true}
+      vertical={false}
+    >
+      <Blueprint3.Button
+        icon="console"
+        text="Console"
+      />
+      <EditorDropdown
+        appState={
+          Object {
+            "gistId": null,
+          }
+        }
+      />
+    </Blueprint3.ControlGroup>
+  </div>
+  <div>
+    <address-bar
+      appState={
+        Object {
+          "gistId": null,
+        }
+      }
+    />
+    <publish-button
+      appState={
+        Object {
+          "gistId": null,
+        }
+      }
+    />
+  </div>
+</div>
+`;

@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header component renders 1`] = `
+<Fragment>
+  <chrome-mac
+    appState={Object {}}
+  />
+  <header
+    id="header"
+  >
+    <commands
+      appState={Object {}}
+      key="commands"
+    />
+  </header>
+  <welcome-tour
+    appState={Object {}}
+  />
+</Fragment>
+`;

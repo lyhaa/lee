@@ -1,0 +1,40 @@
+{
+  "transform": {
+    ".(js|jsx|ts|tsx)": "ts-jest"
+  },
+  "testURL": "http://localhost",
+  "testRegex": "(-spec)\\.(ts|tsx)$",
+  "bail": true,
+  "resetMocks": true,
+  "resetModules": true,
+  "setupFilesAfterEnv": [
+    "<rootDir>/tests/setup.js"
+  ],
+  "moduleFileExtensions": [
+    "js",
+    "jsx",
+    "json",
+    "ts",
+    "tsx"
+  ],
+  "testPathIgnorePatterns": [
+    "/.tmp/"
+  ],
+  "coverageReporters": [
+    "json",
+    "html",
+    "lcov"
+  ],
+  "collectCoverageFrom": [
+    "src/**/*.{ts,tsx}",
+    "!**/*.d.ts",
+    "!**/*constants.ts"
+  ],
+  "coveragePathIgnorePatterns": [
+    "/node_modules/",
+    "/tests/.*\\.(ts|js)$"
+  ],
+  "moduleNameMapper": {
+    ".*releases.json$": "<rootDir>/static/releases.json"
+  }
+}
