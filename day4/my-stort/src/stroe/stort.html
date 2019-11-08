@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+   <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+   <script src="https://cdn.bootcss.com/redux/4.0.0/redux.js"></script>
+   <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+   <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+    <script type="text/babel">
+        const store = window.Redux.createStore((store={
+            name:'yao'
+        },action)=>{
+            switch(action.type){
+                case 'SETAUTHOR':
+                    return{
+                        ...store,
+                        name:action.name
+                    }
+                    break;
+                default:
+                    return store
+                    break;
+            }
+        })
+        class Component1 extends React.Component{
+            constructor(props){
+                super(props);
+                this.state = {
+                    name:store.getState().name
+                }
+                store.subscribe(()=>{
+                    this.setState({
+                        name:store.getState().name
+                    })
+                })
+            }
+            render(){
+                return(
+                    <div style={{border:'1px solid red'}}><p>组件1</p>{this.state.name}</div>
+                )
+            }
+        }
+          class Component2 extends React.Component{
+            constructor(props){
+                super(props);
+                this.state = {
+                    name:''
+                }
+            }
+            sendData(){
+                store.dispatch({
+                    type:'SETAUTHOR',
+                    name:this.state.name
+                })
+            }
+            render(){
+                return(
+                    <div style={{border:'1px solid blue'}}>
+                        <p>组件2</p>
+                        <input onChange={
+                            (e)=>{
+                                this.setState({
+                                    name:e.target.value
+                                })
+                            }
+                        } 
+                        type="text" />
+                        <button onClick={this.sendData.bind(this)}>点击</button>
+                    </div>
+                )
+            }
+        }
+        ReactDOM.render(
+            <div>
+                <Component1></Component1>
+                <Component2></Component2>
+            </div>,
+            document.getElementById("app")
+        )
+    </script>
+</body>
+</html>
